@@ -1,0 +1,77 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 240 10% 3.9%;
+    --foreground: 0 0% 98%;
+    --card: 240 10% 3.9%;
+    --card-foreground: 0 0% 98%;
+    --popover: 240 10% 3.9%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 217.2 91.2% 59.8%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 224.3 76.3% 48%;
+    --radius: 0.5rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-os-darker text-foreground;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+}
+
+.hexagon {
+  clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+}
+
+.terminal-text {
+  font-family: "Courier New", monospace;
+}
+
+.grid-pattern {
+  background-image: radial-gradient(rgba(79, 172, 254, 0.1) 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+
+.glow-text {
+  text-shadow: 0 0 5px rgba(79, 172, 254, 0.5);
+}
+
+.glow-border {
+  box-shadow: 0 0 5px rgba(79, 172, 254, 0.5);
+}
+
+.process-node {
+  transition: all 0.3s ease;
+}
+
+.process-node:hover {
+  filter: brightness(1.2);
+  transform: scale(1.05);
+}
+
+.resource-node {
+  transition: all 0.3s ease;
+}
+
+.resource-node:hover {
+  filter: brightness(1.2);
+  transform: scale(1.05);
+}
