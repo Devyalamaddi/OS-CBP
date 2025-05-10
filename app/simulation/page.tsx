@@ -9,6 +9,7 @@ import { CPUScheduler } from "@/components/scheduler/cpu-scheduler"
 import { useStore } from "@/lib/store"
 import { Home, Award, LogOut } from "lucide-react"
 import { GameCards } from "@/components/gamification/game-cards"
+import { SimulationControls } from "@/components/simulation-controls"
 
 export default function SimulationPage() {
   const { simulation, resetSimulation, updateGameMetrics } = useStore()
@@ -99,7 +100,7 @@ export default function SimulationPage() {
         {/* Left Column */}
         <div className="space-y-4">
           <DashboardPanel />
-          <GameCards />
+          <GameCards/>
         </div>
 
         {/* Middle Column */}

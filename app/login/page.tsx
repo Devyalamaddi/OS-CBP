@@ -117,7 +117,7 @@ export default function LoginPage() {
 
           <form onSubmit={handleSubmit}>
             {!isLogin && (
-              <div className="mb-4">
+              <div className="mb-4 hidden">
                 <label htmlFor="name" className="block text-sm font-medium text-gray-400 mb-1">
                   Full Name
                 </label>
@@ -136,8 +136,26 @@ export default function LoginPage() {
                 </div>
               </div>
             )}
-
             <div className="mb-4">
+                <label htmlFor="rollNumber" className="block text-sm font-medium text-gray-400 mb-1">
+                  Roll Number
+                </label>
+                <div className="relative">
+                  <User className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-500 h-5 w-5" />
+                  <input
+                    type="text"
+                    id="rollNumber"
+                    name="rollNumber"
+                    value={formData.rollNumber}
+                    onChange={handleChange}
+                    required
+                    className="bg-os-darker border border-os-light rounded-md py-2 pl-10 pr-4 w-full text-white focus:outline-none focus:ring-1 focus:ring-os-blue"
+                    placeholder="CS2001"
+                  />
+                </div>
+              </div>
+
+            <div className="mb-4 hidden">
               <label htmlFor="email" className="block text-sm font-medium text-gray-400 mb-1">
                 Email Address
               </label>
@@ -177,7 +195,7 @@ export default function LoginPage() {
               </div>
             )}
 
-            <div className="mb-6">
+            <div className="mb-6 hidden">
               <label htmlFor="password" className="block text-sm font-medium text-gray-400 mb-1">
                 Password
               </label>

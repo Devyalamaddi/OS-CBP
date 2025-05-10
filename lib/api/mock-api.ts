@@ -52,18 +52,13 @@ const mockScores: ScoreData[] = [
 
 // Mock leaderboard data
 const mockLeaderboard: LeaderboardEntry[] = [
-  { id: 1, name: "Alice", rollNumber: "CS2001", score: 950, level: 3 },
-  { id: 2, name: "Bob", rollNumber: "CS2002", score: 920, level: 3 },
-  { id: 3, name: "Charlie", rollNumber: "CS2003", score: 880, level: 3 },
-  { id: 4, name: "David", rollNumber: "CS2004", score: 850, level: 3 },
-  { id: 5, name: "Eve", rollNumber: "CS2005", score: 820, level: 3 },
-  { id: 6, name: "Frank", rollNumber: "CS2006", score: 780, level: 2 },
-  { id: 7, name: "Grace", rollNumber: "CS2007", score: 750, level: 2 },
-  { id: 8, name: "Heidi", rollNumber: "CS2008", score: 720, level: 2 },
-  { id: 9, name: "Ivan", rollNumber: "CS2009", score: 680, level: 2 },
-  { id: 10, name: "Judy", rollNumber: "CS2010", score: 650, level: 2 },
+    { id: 1, name: "Sri Hasnika", rollNumber: "23071A05K9", score: 970, level: 3 },
+    { id: 2, name: "Devendra", rollNumber: "23071A05M2", score: 940, level: 3 },
+    { id: 3, name: "Dhruvan", rollNumber: "23071A05M1", score: 890, level: 3 },
+    { id: 4, name: "Nagarjuna", rollNumber: "23071A05K8", score: 860, level: 3 },
+    { id: 5, name: "Harsha", rollNumber: "23071A05M3", score: 810, level: 2 }
 ]
-
+  
 // Mock JWT token
 const generateToken = (user: User): string => {
   // In a real app, this would use JWT

@@ -10,7 +10,6 @@ const inter = Inter({ subsets: ["latin"] })
 export const metadata: Metadata = {
   title: "OS Resource Allocation Simulator",
   description: "An educational game for learning Operating System concepts",
-    generator: 'v0.dev'
 }
 
 export default function RootLayout({

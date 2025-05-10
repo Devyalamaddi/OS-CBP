@@ -17,6 +17,7 @@ import {
   Pause,
   Play,
   AlertTriangle,
+  MoveLeft,
 } from "lucide-react"
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip"
 
@@ -69,6 +70,7 @@ export default function HackTheOSPage() {
   const [showTutorial, setShowTutorial] = useState(true)
   const [paused, setPaused] = useState(false)
   const [error, setError] = useState<string | null>(null)
+  const [showModel, setShowModel] = useState<boolean>(true)
 
   const gameLoopRef = useRef<number | null>(null)
 
@@ -833,79 +835,96 @@ export default function HackTheOSPage() {
 
         {/* Game Won Modal */}
         <AnimatePresence>
-          {gameWon && (
+          {gameWon && showModel &&(
             <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              className="fixed inset-0 z-50 flex items-center justify-center bg-black/70"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-50 flex items-center justify-center bg-black/70"
+          >
+            <motion.div
+              initial={{ scale: 0.9 }}
+              animate={{ scale: 1 }}
+              exit={{ scale: 0.9 }}
+              className="bg-os-dark rounded-lg border border-os-light p-6 shadow-xl w-full max-w-md relative"
             >
-              <motion.div
-                initial={{ scale: 0.9 }}
-                animate={{ scale: 1 }}
-                exit={{ scale: 0.9 }}
-                className="bg-os-dark rounded-lg border border-os-light p-6 shadow-xl w-full max-w-md"
+              {/* Close Button */}
+              <button
+                className="absolute top-4 right-4 text-os-light hover:text-white transition-colors text-xl"
+                onClick={() => {
+                  setGameStarted(false)
+                  if (gameLoopRef.current) {
+                    cancelAnimationFrame(gameLoopRef.current)
+                  }
+                  setShowModel(false)  // Ensure this state exists and controls modal visibility
+                }}
               >
-                <div className="flex items-center justify-center mb-4">
-                  <CheckCircle className="text-os-green h-12 w-12" />
-                </div>
-                <h2 className="text-2xl font-bold text-white mb-4 text-center">Puzzle Solved!</h2>
-
-                <div className="bg-os-darker rounded-md p-4 border border-os-light mb-4">
-                  <div className="grid grid-cols-2 gap-4 mb-4">
-                    <div className="text-center">
-                      <div className="text-gray-400 text-sm">Score</div>
-                      <div className="text-3xl font-bold text-os-green">{score}</div>
-                    </div>
-                    <div className="text-center">
-                      <div className="text-gray-400 text-sm">Time</div>
-                      <div className="text-3xl font-bold text-os-blue">{formatTime(time)}</div>
-                    </div>
+                <MoveLeft/>
+              </button>
+          
+              <div className="flex items-center justify-center mb-4">
+                <CheckCircle className="text-os-green h-12 w-12" />
+              </div>
+              <h2 className="text-2xl font-bold text-white mb-4 text-center">Puzzle Solved!</h2>
+          
+              <div className="bg-os-darker rounded-md p-4 border border-os-light mb-4">
+                <div className="grid grid-cols-2 gap-4 mb-4">
+                  <div className="text-center">
+                    <div className="text-gray-400 text-sm">Score</div>
+                    <div className="text-3xl font-bold text-os-green">{score.toFixed(2)}</div>
                   </div>
-
-                  <div className="grid grid-cols-2 gap-4">
-                    <div className="text-center">
-                      <div className="text-gray-400 text-sm">Moves</div>
-                      <div className="text-xl font-bold text-os-purple">{moves}</div>
-                    </div>
-                    <div className="text-center">
-                      <div className="text-gray-400 text-sm">Hints Used</div>
-                      <div className="text-xl font-bold text-os-yellow">{hintsUsed}</div>
-                    </div>
+                  <div className="text-center">
+                    <div className="text-gray-400 text-sm">Time</div>
+                    <div className="text-3xl font-bold text-os-blue">{formatTime(time)}</div>
                   </div>
                 </div>
-
-                <div className="flex justify-between">
+          
+                <div className="grid grid-cols-2 gap-4">
+                  <div className="text-center">
+                    <div className="text-gray-400 text-sm">Moves</div>
+                    <div className="text-xl font-bold text-os-purple">{moves}</div>
+                  </div>
+                  <div className="text-center">
+                    <div className="text-gray-400 text-sm">Hints Used</div>
+                    <div className="text-xl font-bold text-os-yellow">{hintsUsed}</div>
+                  </div>
+                </div>
+              </div>
+          
+              <div className="flex justify-between">
+                <button
+                  className="bg-os-light text-white py-2 px-4 rounded-md hover:bg-os-lighter transition-colors"
+                  onClick={() => {
+                    setGameStarted(false)
+                    if (gameLoopRef.current) {
+                      cancelAnimationFrame(gameLoopRef.current)
+                    }
+                    setShowModel(false)
+                  }}
+                >
+                  Back to Puzzles
+                </button>
+          
+                {currentLevel < levels.length && (
                   <button
-                    className="bg-os-light text-white py-2 px-4 rounded-md hover:bg-os-lighter transition-colors"
+                    className="bg-os-purple text-white py-2 px-4 rounded-md hover:bg-purple-600 transition-colors"
                     onClick={() => {
+                      setCurrentLevel((prev) => prev + 1)
                       setGameStarted(false)
                       if (gameLoopRef.current) {
                         cancelAnimationFrame(gameLoopRef.current)
                       }
+                      setShowModel(false)
+                      setTimeout(initializeGame, 100)
                     }}
                   >
-                    Back to Puzzles
+                    Next Puzzle
                   </button>
-
-                  {currentLevel < levels.length && (
-                    <button
-                      className="bg-os-purple text-white py-2 px-4 rounded-md hover:bg-purple-600 transition-colors"
-                      onClick={() => {
-                        setCurrentLevel((prev) => prev + 1)
-                        setGameStarted(false)
-                        if (gameLoopRef.current) {
-                          cancelAnimationFrame(gameLoopRef.current)
-                        }
-                        setTimeout(initializeGame, 100)
-                      }}
-                    >
-                      Next Puzzle
-                    </button>
-                  )}
-                </div>
-              </motion.div>
+                )}
+              </div>
             </motion.div>
+          </motion.div>
+          
           )}
         </AnimatePresence>
 

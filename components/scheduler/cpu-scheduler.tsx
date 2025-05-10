@@ -352,17 +352,7 @@ export function CPUScheduler() {
           </div>
         </div>
 
-        {/* Enhanced Gantt Chart */}
-        <div className="bg-os-darker rounded-md border border-os-light p-3">
-          <h3 className="text-sm font-bold text-gray-300 mb-2 flex items-center">
-            <Clock className="mr-2 h-4 w-4 text-os-yellow" />
-            Process Execution Timeline
-          </h3>
-
-          <div className="h-60">
-            <EnhancedGanttChart />
-          </div>
-        </div>
+        
       </motion.div>
     </TooltipProvider>
   )

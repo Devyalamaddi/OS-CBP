@@ -69,7 +69,7 @@ export default function Home() {
 
       {/* Footer */}
       <footer className="bg-os-dark border-t border-os-light p-4 text-center text-gray-400">
-        <p>© 2023 OS Resource Allocation Simulator | Educational Project</p>
+        <p>© 2025 OS Resource Allocation Simulator | Educational Project</p>
       </footer>
     </main>
   )
