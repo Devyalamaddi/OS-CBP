@@ -56,7 +56,7 @@ const mockLeaderboard: LeaderboardEntry[] = [
     { id: 2, name: "Devendra", rollNumber: "23071A05M2", score: 940, level: 3 },
     { id: 3, name: "Dhruvan", rollNumber: "23071A05M1", score: 890, level: 3 },
     { id: 4, name: "Nagarjuna", rollNumber: "23071A05K8", score: 860, level: 3 },
-    { id: 5, name: "Harsha", rollNumber: "23071A05M3", score: 810, level: 2 }
+    { id: 5, name: "Harsha", rollNumber: "23071A05M3", score: 810, level: 2 }o
 ]
   
 // Mock JWT token

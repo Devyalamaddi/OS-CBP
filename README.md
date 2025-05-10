@@ -2,6 +2,20 @@
 
 An educational game built with Next.js to help users learn core Operating System concepts through interactive simulations. This project focuses on visualizing and controlling OS concepts such as process lifecycle, CPU scheduling, deadlock management, and resource allocation.
 
+## Team Details
+
+| Name       | Roll Number   |
+|------------|---------------|
+| Sri Hasnika| 23071A05K9    |
+| Devendra   | 23071A05M2    |
+| Dhruvan    | 23071A05M1    |
+| Nagarjuna  | 23071A05K8    |
+| Harsha     | 23071A05M3    |
+
+## Video Demo
+
+You can watch the project demo video here: [![Demo Video Link](https://img.icons8.com/material-outlined/24/000000/link--v1.png)](Insert-your-Google-Drive-video-demo-link-here)
+
 ## Features
 
 - Interactive simulation of OS resource allocation and process management
