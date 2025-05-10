@@ -14,7 +14,7 @@ An educational game built with Next.js to help users learn core Operating System
 
 ## Video Demo
 
-You can watch the project demo video here: [![Demo Video Link](https://img.icons8.com/material-outlined/24/000000/link--v1.png)](https://drive.google.com/file/d/1jqKKhFplnjuBPzTFmvBKK46svn2cjnPT/view?usp=sharing)
+You can watch the project demo video here: [Demo Video Link](https://drive.google.com/file/d/1jqKKhFplnjuBPzTFmvBKK46svn2cjnPT/view?usp=sharing)
 
 ## Features
 
